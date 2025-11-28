@@ -1,1 +1,87 @@
+body {
+    background: linear-gradient(135deg, #1e1f26, #2d2f3a);
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
 
+header {
+    padding: 20px;
+}
+
+.creator {
+    color: #00d1ff;
+    font-weight: bold;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    background: #2c2f3e;
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 25px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+input {
+    padding: 12px;
+    width: 80%;
+    margin: 15px 0;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #00d1ff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #00a8cc;
+}
+
+.hidden {
+    display: none;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#previous-guesses {
+    margin-top: 15px;
+    color: #cccccc;
+}
+
+.success {
+    color: #00ff9d;
+    font-weight: bold;
+}
+
+.fail {
+    color: #ff4b4b;
+    font-weight: bold;
+}
+
+.remaining {
+    margin-top: 20px;
+    font-size: 18px;
+}
