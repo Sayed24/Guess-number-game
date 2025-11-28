@@ -1,2 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess The Number</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
 
-<h1>Sadat</h1>
+<body>
+    <header>
+        <h2>Created by <span class="creator">SayedRahim Sadat</span></h2>
+        <h3 id="welcome"></h3>
+    </header>
+
+    <div class="container">
+
+        <div id="username-section">
+            <h2>Welcome!</h2>
+            <p>Please enter your name to start the game:</p>
+            <input type="text" id="username-input" placeholder="Enter your name..." />
+            <button onclick="saveUsername()">Start Game</button>
+        </div>
+
+        <div id="game-section" class="hidden">
+            <h1>Guess The Number (1–100)</h1>
+
+            <p id="player-name-display"></p>
+
+            <div class="stats">
+                <p>Success: <span id="success-count">0</span></p>
+                <p>Fails: <span id="fail-count">0</span></p>
+            </div>
+
+            <input type="number" id="guess-input" placeholder="Your guess..." />
+            <button id="guess-btn" onclick="checkGuess()">Guess</button>
+
+            <div id="result"></div>
+            <div id="previous-guesses"></div>
+            <p class="remaining">Remaining Attempts: <span id="attempts">10</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
