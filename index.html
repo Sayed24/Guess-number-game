@@ -1,46 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guess The Number</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Guess The Number — Glass Edition</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <header>
-        <h2>Created by <span class="creator">SayedRahim Sadat</span></h2>
-        <h3 id="welcome"></h3>
-    </header>
-
-    <div class="container">
-
-        <div id="username-section">
-            <h2>Welcome!</h2>
-            <p>Please enter your name to start the game:</p>
-            <input type="text" id="username-input" placeholder="Enter your name..." />
-            <button onclick="saveUsername()">Start Game</button>
-        </div>
-
-        <div id="game-section" class="hidden">
-            <h1>Guess The Number (1–100)</h1>
-
-            <p id="player-name-display"></p>
-
-            <div class="stats">
-                <p>Success: <span id="success-count">0</span></p>
-                <p>Fails: <span id="fail-count">0</span></p>
-            </div>
-
-            <input type="number" id="guess-input" placeholder="Your guess..." />
-            <button id="guess-btn" onclick="checkGuess()">Guess</button>
-
-            <div id="result"></div>
-            <div id="previous-guesses"></div>
-            <p class="remaining">Remaining Attempts: <span id="attempts">10</span></p>
-        </div>
+  <header class="topbar">
+    <div class="brand">
+      <div class="creator">Created by <strong>SayedRahim Sadat</strong></div>
     </div>
 
-    <script src="script.js"></script>
+    <div class="controls">
+      <label class="theme-switch">
+        <input id="theme-toggle" type="checkbox" />
+        <span class="slider"></span>
+        <span class="label">Dark</span>
+      </label>
+      <button id="leaderboard-open" class="ghost">Leaderboard</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- Welcome & username -->
+    <section id="welcome-card" class="card">
+      <h1 class="title">Welcome to Guess The Number</h1>
+      <p class="subtitle">Enter your name and try to guess the secret number between <strong>1</strong> and <strong>100</strong>.</p>
+
+      <div class="row">
+        <input id="username-input" type="text" placeholder="Your name..." autocomplete="name" />
+        <button id="start-btn" class="primary">Start</button>
+      </div>
+
+      <p class="note">This game keeps your stats locally (leaderboard). 10 attempts per round.</p>
+    </section>
+
+    <!-- Game -->
+    <section id="game-card" class="card hidden" aria-hidden="true">
+      <div class="card-head">
+        <div>
+          <h2 id="player-title">Player:</h2>
+          <div class="player-name" id="player-name">—</div>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-label">Success</div>
+            <div id="success-count" class="stat-value">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Fails</div>
+            <div id="fail-count" class="stat-value">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Attempts</div>
+            <div id="attempts" class="stat-value">10</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-body">
+        <div class="prompt">Guess a number (1–100)</div>
+
+        <div class="row guess-row">
+          <input id="guess-input" type="number" min="1" max="100" placeholder="Enter a number..." />
+          <button id="guess-btn" class="primary">Guess</button>
+        </div>
+
+        <div id="result" class="result" aria-live="polite"></div>
+
+        <div id="previous-guesses" class="previous"></div>
+
+        <div class="actions">
+          <button id="new-round" class="ghost">New Round</button>
+          <button id="reset-stats" class="danger">Reset Leaderboard</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leaderboard modal -->
+    <div id="leaderboard-modal" class="modal hidden" aria-hidden="true">
+      <div class="modal-card card">
+        <div class="modal-head">
+          <h3>Leaderboard (Local)</h3>
+          <button id="close-leaderboard" class="ghost">Close</button>
+        </div>
+
+        <div id="leaderboard-content" class="leaderboard">
+          <!-- Table injected by JS -->
+        </div>
+
+        <div class="modal-actions">
+          <button id="clear-leaderboard" class="danger">Clear Leaderboard</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- small canvas for confetti -->
+    <canvas id="confetti-canvas" class="confetti"></canvas>
+  </main>
+
+  <footer class="footer">
+    <small>Good luck, and have fun! — Glassmorphism Edition</small>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
